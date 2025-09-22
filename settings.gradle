@@ -1,0 +1,8 @@
+rootProject.name = 'deputy'
+
+include(
+        "batch",
+        "bt",
+        "court",
+        "edms"
+)
