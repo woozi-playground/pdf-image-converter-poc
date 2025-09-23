@@ -76,7 +76,7 @@ public class EdmsApi {
     }
 
     @PostMapping("/delete/{id}")
-    public ResponseEntity<String> deleteFiles(@PathVariable final String id) {
+    public ResponseEntity<Integer> deleteFiles(@PathVariable final String id) {
         try {
             final File baseDir = resolveWritableResourcesDir();
             final File edmsDir = new File(baseDir, "static/edms");
@@ -89,9 +89,9 @@ public class EdmsApi {
             }
             boolean deleted = target.delete();
             if (deleted) {
-                return ResponseEntity.ok(id);
+                return ResponseEntity.ok(1);
             }
-            return ResponseEntity.internalServerError().build();
+            return ResponseEntity.ok(0);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }

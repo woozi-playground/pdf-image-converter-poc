@@ -30,6 +30,8 @@ subprojects {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
